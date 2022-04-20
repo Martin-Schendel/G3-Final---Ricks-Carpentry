@@ -2,22 +2,22 @@
 session_start();
 require_once('Config.php');
 
-if (isset($_POST['EmpUsername'])&&
-    isset($_POST['EmpFirstName'])&&
+if (isset($_POST['EmpFirstName'])&&
     isset($_POST['EmpLastName'])&&
     isset($_POST['EmpEmail'])&&
-    isset($_POST['EmpPhone'])){
+    isset($_POST['EmpPhone'])&&
+    isset($_POST['EmpUsername'])){
 
-        $uname = $_POST['EmpUsername'];
         $fname = $_POST['EmpFirstName'];
         $lname= $_POST['EmpLastName'];
         $email= $_POST['EmpEmail'];
         $phone= $_POST['EmpPhone'];
+        $uname = $_POST['EmpUsername'];
         $id = null;
 
         $stmt = $conn->prepare("INSERT INTO employee VALUES(?,?,?,?,?,?)");
 
-        $stmt->bind_param("isssss",$id,$uname,$fname,$lname,$email,$phone);
+        $stmt->bind_param("isssss",$id,$fname,$lname,$email,$phone,$uname);
         $stmt->execute();
         $result = $stmt->get_result();
         $stmt->close();
@@ -25,8 +25,8 @@ if (isset($_POST['EmpUsername'])&&
  
     
 // Defining variables and set to empty values
-$EmpFirstNameErr = $EmpLastNameErr = $EmpEmailErr = $EmpPhoneErr = "";
-$EmpFirstName = $EmpLastName = $EmpEmail = $EmpPhoneErr = "";
+$EmpFirstNameErr = $EmpLastNameErr = $EmpEmailErr = $EmpPhoneErr = $EmpUsernameErr = "";
+$EmpFirstName = $EmpLastName = $EmpEmail = $EmpPhoneErr = $EmpUsername = "";
 
 //Moved function because it was causing an error--mccarthy
 function test_input($data) {
@@ -80,6 +80,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $EmpPhoneErr = "Invalid phone number";
             }
     }
+
+    if (empty($_POST["EmpUsername"])) {
+        $EmpUsernameErr = "Username is required";
+    }
+    else {
+        $EmpUsernameErr = test_input($_POST["EmpUsername"]);
+            // check if name only contains letters
+            if (!preg_match("/^[a-zA-Z]*$/",$EmpUsernameErr)) {
+            $EmpUsernameErr = "Only letters allowed";
+            }
+        }
 }
 }
 ?>
