@@ -72,13 +72,18 @@ table, form{
     border-collapse: collapse;
     max-width: 500px;
 }
+table, td{
+    border: 1px solid;
+    background-color: var(--pb-lightgreen);
+    color: var(--pb-white);
+    padding: .25rem;
+}
+caption{
+    background-color: var(--pb-darkgreen);
+}
 th{
     border: 3px solid;
-}
-td{
-    border: 1px solid;
-}
-th, td{
+    padding: .125rem;
     background-color: var(--pb-darkgreen);
 }
 .content{
