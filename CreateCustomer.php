@@ -2,17 +2,39 @@
 session_start();
 require_once('Config.php');
 
-// if (isset($_POST[])){
+if (isset($_POST['CustUserame'])&&
+    isset($_POST['CustFirstName'])&&
+    isset($_POST['CustLastName'])&&
+    isset($_POST['CustEmail'])&&
+    isset($_POST['CustPhone'])){
 
-//     $stmt = $conn->prepare();
-//     $stmt->bind_param();
-//     $stmt->execute();
-//     $result = $stmt->get_result();
+        $uname = $_POST['CustUserame'];
+        $fname = $_POST['CustFirstName'];
+        $lname= $_POST['CustLastName'];
+        $email= $_POST['CustEmail'];
+        $phone= $_POST['CustPhone'];
+        $id = null;
+
+        $stmt = $conn->prepare("INSERT INTO customer VALUES(?,?,?,?,?,?)");
+
+        $stmt->bind_param("isssss",$id,$uname,$fname,$lname,$email,$phone);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+        $conn->close();
  
     
 // Defining variables and set to empty values
 $CustFirstNameErr = $CustLastNameErr = $CustEmailErr = $CustPhoneErr = $CustUsernameErr = "";
 $CustFirstName = $CustLastName = $CustEmail = $CustPhone = $CustUsername = "";
+
+//Moved function because it was causing an error--mccarthy
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+    }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["CustUsername"])) {
@@ -69,13 +91,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $CustPhoneErr = "Invalid phone number - Please enter 10 digits";
             }
     }
-
-    function test_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-    }
 }
-//}
+}
 ?>

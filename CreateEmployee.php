@@ -2,17 +2,39 @@
 session_start();
 require_once('Config.php');
 
-// if (isset($_POST[])){
+if (isset($_POST['EmpUsername'])&&
+    isset($_POST['EmpFirstName'])&&
+    isset($_POST['EmpLastName'])&&
+    isset($_POST['EmpEmail'])&&
+    isset($_POST['EmpPhone'])){
 
-//     $stmt = $conn->prepare();
-//     $stmt->bind_param();
-//     $stmt->execute();
-//     $result = $stmt->get_result();
+        $uname = $_POST['EmpUsername'];
+        $fname = $_POST['EmpFirstName'];
+        $lname= $_POST['EmpLastName'];
+        $email= $_POST['EmpEmail'];
+        $phone= $_POST['EmpPhone'];
+        $id = null;
+
+        $stmt = $conn->prepare("INSERT INTO employee VALUES(?,?,?,?,?,?)");
+
+        $stmt->bind_param("isssss",$id,$uname,$fname,$lname,$email,$phone);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+        $conn->close();
  
     
 // Defining variables and set to empty values
 $EmpFirstNameErr = $EmpLastNameErr = $EmpEmailErr = $EmpPhoneErr = "";
 $EmpFirstName = $EmpLastName = $EmpEmail = $EmpPhoneErr = "";
+
+//Moved function because it was causing an error--mccarthy
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+    }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["EmpFirstName"])) {
@@ -58,13 +80,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $EmpPhoneErr = "Invalid phone number";
             }
     }
-
-    function test_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-    }
 }
-//}
+}
 ?>

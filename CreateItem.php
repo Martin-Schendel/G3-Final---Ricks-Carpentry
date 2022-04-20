@@ -2,17 +2,37 @@
 session_start();
 require_once('Config.php');
 
-// if (isset($_POST[])){
+if (isset($_POST['ItemName'])&&
+    isset($_POST['ItemDescription'])&&
+    isset($_POST['ItemWholesaleCost'])&&
+    isset($_POST['ItemPrice'])){
 
-//     $stmt = $conn->prepare();
-//     $stmt->bind_param();
-//     $stmt->execute();
-//     $result = $stmt->get_result();
+        $iname = $_POST['ItemName'];
+        $idescription = $_POST['ItemDescription'];
+        $iwholecost= $_POST['ItemWholesaleCost'];
+        $iprice= $_POST['ItemPrice'];
+        $id = null;
+
+        $stmt = $conn->prepare("INSERT INTO item VALUES(?,?,?,?,?)");
+
+        $stmt->bind_param("isssdd",$id,$iname,$idescription,$iwholecost,$iprice);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+        $conn->close();
  
     
 // Defining variables and set to empty values
 $ItemNameErr = $ItemDescriptionErr = $ItemWholesaleCostErr = $ItemPriceErr = "";
 $ItemName = $ItemDescription = $ItemWholesaleCost = $ItemPrice = "";
+
+//Moved function because it was causing an error--mccarthy
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+    }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["ItemName"])) {
@@ -29,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["ItemDescription"])) {
         $ItemDescriptionErr = "Item description is required";
             }
-    }
+    // } not sure what is going on with this bracket(maybe missing else)--mccarthy
 
     if (empty($_POST["ItemWholesaleCost"])) {
         $ItemWholesaleCostErr = "Item wholesale cost is required";
@@ -52,13 +72,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $ItemPriceErr = "Invalid item price";
             }
     }
-
-    function test_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-    }
-
-//}
+}
+}
 ?>
