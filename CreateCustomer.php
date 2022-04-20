@@ -2,22 +2,20 @@
 session_start();
 require_once('Config.php');
 
-if (isset($_POST['CustUserame'])&&
-    isset($_POST['CustFirstName'])&&
+if (isset($_POST['CustFirstName'])&&
     isset($_POST['CustLastName'])&&
     isset($_POST['CustEmail'])&&
     isset($_POST['CustPhone'])){
 
-        $uname = $_POST['CustUserame'];
         $fname = $_POST['CustFirstName'];
         $lname= $_POST['CustLastName'];
         $email= $_POST['CustEmail'];
         $phone= $_POST['CustPhone'];
         $id = null;
 
-        $stmt = $conn->prepare("INSERT INTO customer VALUES(?,?,?,?,?,?)");
+        $stmt = $conn->prepare("INSERT INTO customer VALUES(?,?,?,?,?)");
 
-        $stmt->bind_param("isssss",$id,$uname,$fname,$lname,$email,$phone);
+        $stmt->bind_param("issss",$id,$fname,$lname,$email,$phone);
         $stmt->execute();
         $result = $stmt->get_result();
         $stmt->close();
@@ -37,16 +35,16 @@ function test_input($data) {
     }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (empty($_POST["CustUsername"])) {
-        $CustUsernameErr = "Username is required";
-    }
-    else {
-        $CustUsername = test_input($_POST["CustUserame"]);
-            // check if name only contains letters
-            if (!preg_match("/^[a-zA-Z]*$/",$CustUsername)) {
-            $CustUsernameErr = "Only letters allowed";
-            }
-        }
+    // if (empty($_POST["CustUsername"])) {
+    //     $CustUsernameErr = "Username is required";
+    // }
+    // else {
+    //     $CustUsername = test_input($_POST["CustUserame"]);
+    //         // check if name only contains letters
+    //         if (!preg_match("/^[a-zA-Z]*$/",$CustUsername)) {
+    //         $CustUsernameErr = "Only letters allowed";
+    //         }
+    //     }
 
     if (empty($_POST["CustFirstName"])) {
         $CustFirstNameErr = "First name is required";
