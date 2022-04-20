@@ -16,10 +16,11 @@ if (isset($_POST['EmpFirstName'])&&
         $uname = $_POST['EmpUsername'];
         $password = $_POST['EmpPassword'];
         $id = null;
+         $password = password_hash($password, PASSWORD_DEFAULT);
 
         $stmt = $conn->prepare("INSERT INTO employee VALUES(?,?,?,?,?,?,?)");
-
-        $stmt->bind_param("issssss",$id,$fname,$lname,$email,$phone,$uname,$password);
+        //flipped password and username around because they were assigning the wrong values in database-ben
+       $stmt->bind_param("issssss",$id,$fname,$lname,$email,$phone,$password,$uname);
         $stmt->execute();
         $result = $stmt->get_result();
         $stmt->close();
