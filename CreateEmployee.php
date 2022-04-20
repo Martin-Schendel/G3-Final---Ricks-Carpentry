@@ -6,18 +6,20 @@ if (isset($_POST['EmpFirstName'])&&
     isset($_POST['EmpLastName'])&&
     isset($_POST['EmpEmail'])&&
     isset($_POST['EmpPhone'])&&
-    isset($_POST['EmpUsername'])){
+    isset($_POST['EmpUsername'])&&
+    isset($_POST['EmpPassword'])){
 
         $fname = $_POST['EmpFirstName'];
         $lname= $_POST['EmpLastName'];
         $email= $_POST['EmpEmail'];
         $phone= $_POST['EmpPhone'];
         $uname = $_POST['EmpUsername'];
+        $password = $_POST['EmpPassword'];
         $id = null;
 
-        $stmt = $conn->prepare("INSERT INTO employee VALUES(?,?,?,?,?,?)");
+        $stmt = $conn->prepare("INSERT INTO employee VALUES(?,?,?,?,?,?,?)");
 
-        $stmt->bind_param("isssss",$id,$fname,$lname,$email,$phone,$uname);
+        $stmt->bind_param("issssss",$id,$fname,$lname,$email,$phone,$uname,$password);
         $stmt->execute();
         $result = $stmt->get_result();
         $stmt->close();
