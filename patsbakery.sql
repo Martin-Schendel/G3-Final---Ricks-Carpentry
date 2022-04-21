@@ -26,7 +26,9 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `customer`
 --
-
+DROP DATABASE  patsbakery;
+CREATE DATABASE patsbakery;
+USE patsbakery;
 CREATE TABLE `customer` (
   `CustomerID` int NOT NULL,
   `CustFirstName` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
@@ -75,7 +77,7 @@ CREATE TABLE `orderitem` (
   `OrderID` int NOT NULL,
   `ItemID` int NOT NULL,
   `Quantity` int NOT NULL,
-  `SalePrice` double NOT NULL,
+  `UnitSalePrice` double NOT NULL,
   `FilledState` varchar(16) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
