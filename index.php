@@ -1,15 +1,4 @@
-<?php
-    session_start();
-    if(isset($_POST['UserName']) && !isset($_SESSION['UserName'])){
-        $_SESSION['UserName'] = $_POST['UserName'];
-    }
-
-    if(!isset($_SESSION['UserName'])){
-        header("Location: login.php");
-        exit();
-    }
-
-?>
+<?php include_once "RedirectToLogin.php";?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
