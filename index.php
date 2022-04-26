@@ -9,12 +9,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <?php include_once "Header.php";?>
+    <?php include_once "Header.html";?>
     <div class="content">
-        <h2>New Order</h2>
-        <form action="NewOrder.php" method="post">
-            
-        </form>
+        <?php include_once "NewOrderForm.html"?>
     </div>
     <footer>
         Copyright 2022 Pat's Bakery

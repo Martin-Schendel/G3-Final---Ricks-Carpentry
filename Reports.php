@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<?php include_once "Header.php";?>
+<?php include_once "Header.html";?>
     <div class="content">
         <table>
             <caption style="caption-side: top;">Daily Sales Report</caption>

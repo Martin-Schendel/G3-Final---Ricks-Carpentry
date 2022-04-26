@@ -36,6 +36,7 @@ header{
     background-color: var(--pb-lightgreen);
     color: white;
     font-family: Galvji;
+    height: 73px;
 }
 header>h1{
     margin-left: 1rem;
@@ -66,6 +67,9 @@ h3{
     font-family: Galvji;
     padding: 1rem;
     font-size: large;
+}
+p{
+    color: var(--pb-brown);
 }
 table, form{
     margin: 1rem auto 1rem auto;
@@ -105,6 +109,25 @@ footer{
     width: 5rem;
     height: 2rem;
     margin: 1rem;
+}
+fieldset{
+    background-color: var(--pb-brown);
+    border: solid var(--pb-darkgreen);
+}
+fieldset > label{
+    color: var(--pb-darkgreen);
+}
+legend{
+    color: var(--pb-darkgreen);
+    font-weight: bold;
+}
+button{
+    margin: 1rem;
+    background-color: var(--pb-darkgreen);
+    color: var(--pb-white);
+    border: none;
+    width: 10rem;
+    height: 2rem;
 }
 
 /* <form styles> */

@@ -8,27 +8,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<?php include_once "Header.php";?>
+<?php include_once "Header.html";?>
     <div class="content">
-        <h2>New Employee</h2>
-        <form action="CreateEmployee.php" method="post">
-            <label for="EmpFirstName">Employee First Name:</label>
-            <input type="text" id="EmpFirstName" name="EmpFirstName"><br><br>
-            <label for="EmpLastName">Employee Last Name:</label>
-            <input type="text" id="EmpLastName" name="EmpLastName"><br><br>
-            <label for="EmpEmail">Employee Email:</label>
-            <input type="text" id="EmpEmail" name="EmpEmail"><br><br>
-            <label for="EmpPhone">Employee Phone:</label>
-            <input type="text" id="EmpPhone" name="EmpPhone"><br><br>
-            <label for="EmpUsername">Employee Username:</label>
-            <input type="text" id="EmpUsername" name="EmpUsername"><br><br>
-            <label for="EmpPassword">Employee Password:</label>
-            <input type="password" id="EmpPassword" name="EmpPassword"><br><br>
-            <!-- Lets also add some javascript to disable the submit button unless the fields are appropriately filled out and to ensure that the password and confirm password fields match -->
-            <label for="confirmPassword">Confirm Password</label>
-            <input type="password" id="confirmPassword" name="confirmPassword"><br><br>
-            <input type="submit" value="Submit">
-        </form>
+        <?php include_once "LoginForm.html"?>
+        <?php include_once "NewEmpForm.html"?>
     </div>
     <footer>
         Copyright 2022 Pat's Bakery

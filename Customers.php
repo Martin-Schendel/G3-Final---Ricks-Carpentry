@@ -8,20 +8,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<?php include_once "Header.php";?>
+<?php include_once "Header.html";?>
     <div class="content">
-        <h2>New Customer</h2>
-        <form action="CreateCustomer.php" method="post">
-            <label for="CustFirstName">Customer First Name:</label>
-            <input type="text" id="CustFirstName" name="CustFirstName"><br><br>
-            <label for="CustLastName">Customer Last Name:</label>
-            <input type="text" id="CustLastName" name="CustLastName"><br><br>
-            <label for="CustEmail">Customer Email:</label>
-            <input type="text" id="CustEmail" name="CustEmail"><br><br>
-            <label for="CustPhone">Customer Phone:</label>
-            <input type="text" id="CustPhone" name="CustPhone"><br><br>
-            <input type="submit" value="Submit">
-        </form>
+    <?php include_once "NewCustForm.html"?>
     </div>
     <footer>
         Copyright 2022 Pat's Bakery
