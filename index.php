@@ -8,15 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <img src="PB-Logo-Nav.png" alt="Pats Bakery" id="NavLogo" >
-        <nav>
-            <a href="index.html">Order</a> |
-            <a href="Reports.html">Reports</a> |
-            <a href="Customers.html">Customers</a> |
-            <a href="Employees.html">Employees</a>
-        </nav>
-    </header>
+    <?php include_once "Header.php";?>
     <div class="content">
         <h2>New Order</h2>
         <form action="NewOrder.php" method="post">
