@@ -12,6 +12,7 @@
     <div class="content">
         <table>
             <caption style="caption-side: top;">Daily Sales Report</caption>
+            <?php include "GetDailySalesReport.php";?>
             <tr>
                 <th>Order ID</th>
                 <th>Customer</th>

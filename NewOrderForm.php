@@ -21,7 +21,7 @@
                     <th>Price</th>
                 </tr>
             </table>
-            <button type="button" id="reset" >Cancel Order</button>
+            <button type="button" id="reset" onclick="location.reload()">Cancel Order</button>
         </fieldset>
         <label for="Customer">Customer: </label>
         <select name="Customer">

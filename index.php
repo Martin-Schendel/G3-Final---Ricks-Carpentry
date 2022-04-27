@@ -1,4 +1,4 @@
-<?php require "RedirectToLogin.php";?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
