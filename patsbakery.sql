@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 12, 2022 at 02:20 AM
+-- Generation Time: Apr 27, 2022 at 02:31 AM
 -- Server version: 8.0.27
--- PHP Version: 7.4.27
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -26,16 +26,22 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `customer`
 --
-DROP DATABASE  patsbakery;
-CREATE DATABASE patsbakery;
-USE patsbakery;
+
 CREATE TABLE `customer` (
   `CustomerID` int NOT NULL,
-  `CustFirstName` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `CustLastName` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `CustEmail` varchar(250) COLLATE utf8mb4_general_ci NOT NULL,
-  `CustPhone` varchar(16) COLLATE utf8mb4_general_ci NOT NULL
+  `CustFirstName` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `CustLastName` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `CustEmail` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `CustPhone` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`CustomerID`, `CustFirstName`, `CustLastName`, `CustEmail`, `CustPhone`) VALUES
+(2, 'Kailey', 'Karls', 'KailyKarls@gmail.com', '320-428-1867'),
+(3, 'Martin', 'Schendel', '13mschen@gmail.com', '763-350-2480');
 
 -- --------------------------------------------------------
 
@@ -45,13 +51,21 @@ CREATE TABLE `customer` (
 
 CREATE TABLE `employee` (
   `EmployeeID` int NOT NULL,
-  `EmpFirstName` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `EmpLastName` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `EmpEmail` varchar(250) COLLATE utf8mb4_general_ci NOT NULL,
-  `EmpPhone` varchar(16) COLLATE utf8mb4_general_ci NOT NULL,
-  `EmpPassword` varchar(100) COLLATE utf8mb4_general_ci NULL,
-  `EmpUsername` varchar(12) COLLATE utf8mb4_general_ci NULL
+  `EmpFirstName` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `EmpLastName` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `EmpEmail` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `EmpPhone` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `EmpPassword` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `EmpUsername` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `employee`
+--
+
+INSERT INTO `employee` (`EmployeeID`, `EmpFirstName`, `EmpLastName`, `EmpEmail`, `EmpPhone`, `EmpPassword`, `EmpUsername`) VALUES
+(4, 'Reece', 'Withouthisspoon', 'withouthisspoon@gmail.com', '1234567890', '$2y$10$wmG9qwx3QrZLYi1lNaiscuLLOqvh6BzmV8sN0eDM78gBFszh5LnOK', 'Reece'),
+(5, 'Brandy', 'Glass', 'halffull@gmail.com', '0987654321', '$2y$10$OxaRcliiUlyxkvZALB7f3eBniFlcISUeUakEGElfGAxUsdwXIwoVy', 'Brandy');
 
 -- --------------------------------------------------------
 
@@ -61,11 +75,23 @@ CREATE TABLE `employee` (
 
 CREATE TABLE `item` (
   `ItemID` int NOT NULL,
-  `ItemName` varchar(256) COLLATE utf8mb4_general_ci NOT NULL,
-  `ItemDescription` varchar(1024) COLLATE utf8mb4_general_ci NOT NULL,
+  `ItemName` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `ItemDescription` varchar(1024) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `ItemWholesaleCost` double NOT NULL,
   `ItemSalePrice` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `item`
+--
+
+INSERT INTO `item` (`ItemID`, `ItemName`, `ItemDescription`, `ItemWholesaleCost`, `ItemSalePrice`) VALUES
+(2, 'White Bread', 'Tall, soft, light, and fluffy - the perfect classic white bread!', 0.5, 4),
+(3, 'Wheat Bread', 'Moist and tender with delightful texture and wonderful aroma!', 0.75, 4.5),
+(4, 'White Buns', 'Perfect buns for sandwiches or subs! Our white buns are fluffy and delicious!', 0.8, 3.75),
+(5, 'Wheat Buns', 'Deliciously soft buns perfect for hamburgers, pulled pork, and more!', 0.85, 3.75),
+(6, 'Flatbread', 'Soft and pliable, our flatbread is perfect for wraps and pizzas!', 0.75, 3),
+(7, 'French Bread', 'Crisp and crunchy crust with a chewy center is what makes our french bread the talk of the town!', 0.6, 3.75);
 
 -- --------------------------------------------------------
 
@@ -78,7 +104,7 @@ CREATE TABLE `orderitem` (
   `ItemID` int NOT NULL,
   `Quantity` int NOT NULL,
   `UnitSalePrice` double NOT NULL,
-  `FilledState` varchar(16) COLLATE utf8mb4_general_ci NOT NULL
+  `FilledState` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -144,19 +170,19 @@ ALTER TABLE `ordersummary`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `CustomerID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `CustomerID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `EmployeeID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `EmployeeID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `item`
 --
 ALTER TABLE `item`
-  MODIFY `ItemID` int NOT NULL AUTO_INCREMENT;
+  MODIFY `ItemID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `ordersummary`

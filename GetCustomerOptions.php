@@ -1,9 +1,9 @@
 <?php
 include "config.php";
 
-$query = "SELECT `CustomerID`,
- CONCAT(`CustFirstName`, " ", `CustLastName`) AS CustomerName
- FROM `customer`;"
+$query = <<<HEREDOC
+SELECT `CustomerID`, CONCAT(`CustFirstName`, " ", `CustLastName`) AS CustomerName FROM `customer`;
+HEREDOC;
 
  $result = $conn->query($query);
  $numRows = $result->num_rows;
