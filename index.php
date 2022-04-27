@@ -11,7 +11,7 @@
 <body>
     <?php include_once "Header.html";?>
     <div class="content">
-        <?php include_once "NewOrderForm.html"?>
+        <?php include_once "NewOrderForm.php"?>
     </div>
     <footer>
         Copyright 2022 Pat's Bakery

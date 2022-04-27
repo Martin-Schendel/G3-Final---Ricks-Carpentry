@@ -60,7 +60,7 @@ h2{
     margin: auto;
     font-family: Galvji;
     padding: 1rem;
-    font-size: x-large;
+    font-size: xx-large;
 }
 h3{
     color: var(--pb-brown);
@@ -145,6 +145,8 @@ label,
 input, select {
   /* In order to define widths */
   display: inline-block;
+  font-size: x-large;
+  color: var(--pb-black);
 }
 
 label {
