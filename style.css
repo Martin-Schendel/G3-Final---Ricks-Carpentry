@@ -72,6 +72,10 @@ h3{
 p{
     color: var(--pb-brown);
 }
+span{
+    color: var(--pb-white);
+    font-weight: bold;
+}
 table, form{
     margin: 1rem auto 1rem auto;
     border-collapse: collapse;
@@ -139,13 +143,17 @@ hr{
     margin-top: 2.5rem;
     margin-bottom: .5rem;
 }
-
+#reset{
+    background-color: var(--pb-yellow);
+    color: var(--pb-red);
+    border: 1px solid var(--pb-red);
+}
 /* <form styles> */
 label,
 input, select {
   /* In order to define widths */
   display: inline-block;
-  font-size: x-large;
+  font-size: large;
   color: var(--pb-black);
 }
 
