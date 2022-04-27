@@ -1,19 +1,21 @@
 <h2>New Employee</h2>
 <form action="CreateEmployee.php" method="post">
-    <label for="EmpFirstName">First Name:</label>
-    <input type="text" id="EmpFirstName" name="EmpFirstName"><br><br>
-    <label for="EmpLastName">Last Name:</label>
-    <input type="text" id="EmpLastName" name="EmpLastName"><br><br>
-    <label for="EmpEmail">Email:</label>
-    <input type="text" id="EmpEmail" name="EmpEmail"><br><br>
-    <label for="EmpPhone">Phone:</label>
-    <input type="text" id="EmpPhone" name="EmpPhone"><br><br>
-    <label for="EmpUsername">Username:</label>
-    <input type="text" id="EmpUsername" name="EmpUsername"><br><br>
-    <label for="EmpPassword">Password:</label>
-    <input type="password" id="EmpPassword" name="EmpPassword"><br><br>
-    <!-- Lets also add some javascript to disable the submit button unless the fields are appropriately filled out and to ensure that the password and confirm password fields match -->
-    <label for="confirmPassword">Confirm Password</label>
-    <input type="password" id="confirmPassword" name="confirmPassword"><br><br>
-    <input type="submit" value="Submit">
+    <fieldset>
+        <label for="EmpFirstName">First Name:</label>
+        <input type="text" id="EmpFirstName" name="EmpFirstName"><br><br>
+        <label for="EmpLastName">Last Name:</label>
+        <input type="text" id="EmpLastName" name="EmpLastName"><br><br>
+        <label for="EmpEmail">Email:</label>
+        <input type="text" id="EmpEmail" name="EmpEmail"><br><br>
+        <label for="EmpPhone">Phone:</label>
+        <input type="text" id="EmpPhone" name="EmpPhone"><br><br>
+        <label for="EmpUsername">Username:</label>
+        <input type="text" id="EmpUsername" name="EmpUsername"><br><br>
+        <label for="EmpPassword">Password:</label>
+        <input type="password" id="EmpPassword" name="EmpPassword"><br><br>
+        <!-- Lets also add some javascript to disable the submit button unless the fields are appropriately filled out and to ensure that the password and confirm password fields match -->
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword"><br><br>
+        <input type="submit" value="Submit">
+    </fieldset>
 </form>

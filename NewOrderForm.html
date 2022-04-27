@@ -1,19 +1,24 @@
+
 <h2>New Order</h2>
 <form action="CreateEmployee.php" method="post">
     
     <fieldset>
         <label for="Customer">Customer: </label>
-    <input type="text" name="Customer">
-    <br>
-    <br>
-        <p>Make a Selection</p>
+        <select name="Customer">
+            <?php include_once "GetCustomerOptions.php"?>
+        </select>
+        <fieldset>
+            <legend>Items</legend>
+        </fieldset>
         <fieldset>
             <legend>Add Item</legend>
             <label for="Item">Item: </label>
-            <input type="text" name="Item">
+            <select name="Item">
+                <?php include_once "GetCustomerOptions.php"?>
+            </select>
             <label for="Quantity">Quantity: </label>
-            <input type="number" name="Quantity"><br>
-            <button>Add to Order</button>
+            <input type="number" name="Quantity" value="1"><br>
+            <button id="AddToOrder">Add to Order</button>
         </fieldset>
     </fieldset>
     <br>

@@ -11,6 +11,7 @@
 <?php include_once "Header.html";?>
     <div class="content">
         <?php include_once "LoginForm.html"?>
+        <hr>
         <?php include_once "NewEmpForm.html"?>
     </div>
     <footer>

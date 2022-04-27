@@ -37,6 +37,7 @@ header{
     color: white;
     font-family: Galvji;
     height: 73px;
+    border-radius: 0 0 .25rem .25rem;
 }
 header>h1{
     margin-left: 1rem;
@@ -113,6 +114,10 @@ footer{
 fieldset{
     background-color: var(--pb-brown);
     border: solid var(--pb-darkgreen);
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: .25rem;
+    padding-top: 1.5rem;
 }
 fieldset > label{
     color: var(--pb-darkgreen);
@@ -121,13 +126,18 @@ legend{
     color: var(--pb-darkgreen);
     font-weight: bold;
 }
-button{
+button, input[type="submit"]{
     margin: 1rem;
     background-color: var(--pb-darkgreen);
     color: var(--pb-white);
     border: none;
     width: 10rem;
     height: 2rem;
+    border-radius: .25rem;
+}
+hr{
+    margin-top: 2.5rem;
+    margin-bottom: .5rem;
 }
 
 /* <form styles> */
@@ -147,5 +157,11 @@ label+input, label+select{
   width: 40%;
   /* margin-left to create a gutter between the label and input */
   margin: 0 0% 1% 4%;
+}
+input, select{
+    text-align: center;
+    background-color: var(--pb-white);
+    border: solid 1px var(--pb-white);
+    border-radius: .25rem;
 }
 /* </form styles> */
