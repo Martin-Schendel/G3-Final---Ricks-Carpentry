@@ -4,7 +4,7 @@
         $_SESSION['UserName'] = $_POST['UserName'];
     }
     if(!isset($_SESSION['UserName'])){
-        header("Location: login.php");
+        header("Location: Employees.php");
         exit();
     }
 ?>

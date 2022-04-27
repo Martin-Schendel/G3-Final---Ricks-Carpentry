@@ -1,7 +1,6 @@
 
 <h2>New Order</h2>
 <form action="CreateEmployee.php" method="post">
-    
     <fieldset>
         <label for="Customer">Customer: </label>
         <select name="Customer">

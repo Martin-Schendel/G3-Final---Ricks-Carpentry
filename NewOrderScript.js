@@ -23,4 +23,5 @@ function updateOrderItemsDiv() {
     var newDiv = document.createElement("div");
     newDiv.innerHTML =
         "<span>" + itemName + " </span><span> " + quantity + "</span>";
+    orderItemsDiv.appendChild(newDiv);
 }
