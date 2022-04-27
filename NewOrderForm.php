@@ -1,4 +1,4 @@
-
+<?php include "RedirectToLogin.php";?>
 <h2>New Order</h2>
 <form action="CreateOrder.php" method="post">
     <fieldset>
