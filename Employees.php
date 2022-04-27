@@ -12,7 +12,7 @@
     <div class="content">
         <?php include_once "LoginForm.html"?>
         <hr>
-        <?php include_once "NewEmpForm.html"?>
+        <?php include "NewEmpForm.html"?>
     </div>
     <footer>
         Copyright 2022 Pat's Bakery

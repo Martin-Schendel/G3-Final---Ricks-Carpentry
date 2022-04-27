@@ -1,4 +1,4 @@
-<?php include_once "RedirectToLogin.php";?>
+<?php require "RedirectToLogin.php";?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +11,7 @@
 <body>
     <?php include_once "Header.html";?>
     <div class="content">
-        <?php include_once "NewOrderForm.php"?>
+        <?php include "NewOrderForm.php"?>
     </div>
     <footer>
         Copyright 2022 Pat's Bakery

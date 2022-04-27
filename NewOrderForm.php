@@ -5,7 +5,7 @@
     <fieldset>
         <label for="Customer">Customer: </label>
         <select name="Customer">
-            <?php include_once "GetCustomerOptions.php"?>
+            <?php require "GetCustomerOptions.php"?>
         </select>
         <fieldset>
             <legend>Items</legend>
@@ -17,7 +17,7 @@
             <legend>Add Item</legend>
             <label for="Item">Item: </label>
             <select name="Item" id="item" onchange="setItemName()">
-                <?php include_once "GetCustomerOptions.php"?>
+                <?php require "GetItemOptions.php"?>
             </select>
             <label for="Quantity">Quantity: </label>
             <input type="number" name="Quantity" id="quantity" value="1" onchange="setItemID()"><br>

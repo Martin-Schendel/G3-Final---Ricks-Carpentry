@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('Config.php');
+require('Config.php');
 
 if (isset($_POST['ItemName'])&&
     isset($_POST['ItemDescription'])&&

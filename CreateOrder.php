@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('Config.php');
+require('Config.php');
 
 // Get items
 $stmt = $pdo->prepare('SELECT * FROM Item');
