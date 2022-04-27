@@ -12,7 +12,6 @@
     <div class="content">
         <table>
             <caption style="caption-side: top;">Daily Sales Report</caption>
-            <?php include "GetDailySalesReport.php";?>
             <tr>
                 <th>Order ID</th>
                 <th>Customer</th>
@@ -21,45 +20,14 @@
                 <th>Sale Total</th>
                 <th>Profit</th>
             </tr>
+            <?php include "GetDailySalesReport.php";?>
             <tr>
-                <td>0</td>
-                <td>Edward Burk</td>
-                <td>Martin Schendel</td>
-                <td>4/20/2022</td>
-                <td>$20.00</td>
-                <td>$10.00</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Edward Burk</td>
-                <td>Martin Schendel</td>
-                <td>4/20/2022</td>
-                <td>$20.00</td>
-                <td>$10.00</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Edward Burk</td>
-                <td>Martin Schendel</td>
-                <td>4/20/2022</td>
-                <td>$20.00</td>
-                <td>$10.00</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Edward Burk</td>
-                <td>Martin Schendel</td>
-                <td>4/20/2022</td>
-                <td>$20.00</td>
-                <td>$10.00</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Edward Burk</td>
-                <td>Martin Schendel</td>
-                <td>4/20/2022</td>
-                <td>$20.00</td>
-                <td>$10.00</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Total Profit:</td>
+                <td id="totalProfitDaily"></td>
             </tr>
         </table>
         <table>
@@ -72,45 +40,14 @@
                 <th>Sale Total</th>
                 <th>Profit</th>
             </tr>
+            <?php include "GetWeeklySalesReport.php";?>
             <tr>
-                <td>0</td>
-                <td>Edward Burk</td>
-                <td>Martin Schendel</td>
-                <td>4/20/2022</td>
-                <td>$20.00</td>
-                <td>$10.00</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Edward Burk</td>
-                <td>Martin Schendel</td>
-                <td>4/20/2022</td>
-                <td>$20.00</td>
-                <td>$10.00</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Edward Burk</td>
-                <td>Martin Schendel</td>
-                <td>4/20/2022</td>
-                <td>$20.00</td>
-                <td>$10.00</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Edward Burk</td>
-                <td>Martin Schendel</td>
-                <td>4/20/2022</td>
-                <td>$20.00</td>
-                <td>$10.00</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Edward Burk</td>
-                <td>Martin Schendel</td>
-                <td>4/20/2022</td>
-                <td>$20.00</td>
-                <td>$10.00</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Total Profit:</td>
+                <td id="totalProfitWeekly"></td>
             </tr>
         </table>
         <table>
@@ -123,45 +60,14 @@
                 <th>Sale Total</th>
                 <th>Profit</th>
             </tr>
+            <?php include "GetMonthlySalesReport.php";?>
             <tr>
-                <td>0</td>
-                <td>Edward Burk</td>
-                <td>Martin Schendel</td>
-                <td>4/20/2022</td>
-                <td>$20.00</td>
-                <td>$10.00</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Edward Burk</td>
-                <td>Martin Schendel</td>
-                <td>4/20/2022</td>
-                <td>$20.00</td>
-                <td>$10.00</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Edward Burk</td>
-                <td>Martin Schendel</td>
-                <td>4/20/2022</td>
-                <td>$20.00</td>
-                <td>$10.00</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Edward Burk</td>
-                <td>Martin Schendel</td>
-                <td>4/20/2022</td>
-                <td>$20.00</td>
-                <td>$10.00</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Edward Burk</td>
-                <td>Martin Schendel</td>
-                <td>4/20/2022</td>
-                <td>$20.00</td>
-                <td>$10.00</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Total Profit:</td>
+                <td id="totalProfitMonthly"></td>
             </tr>
         </table>
 
