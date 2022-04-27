@@ -27,11 +27,12 @@
         <select name="Customer">
             <?php require "GetCustomerOptions.php"?>
         </select>
+        <button type="button" onclick="gt('Customers.php')"> + Add New Customer</button><br>
         <label for="Employee">Employee: </label>
         <select name="Employee">
             <?php require "GetEmployeeOptions.php"?>
         </select>
     </fieldset>
     <button>Submit</button>
-    <script src="NewOrderScript.js"></script>
+    <script src="script.js"></script>
 </form>

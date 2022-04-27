@@ -44,3 +44,6 @@ function removeItemOption(itemID) {
         opt.remove();
     } catch {}
 }
+function gt(page) {
+    window.location.href = page;
+}
