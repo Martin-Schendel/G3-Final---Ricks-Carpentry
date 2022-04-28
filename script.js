@@ -30,6 +30,8 @@ function updateOrderItemsDiv() {
         itemName +
         ' </td><td><input type="number" id="itemm' +
         itemID +
+        '" name ="itemm' +
+        itemID +
         '" value="' +
         quantity +
         '"></input></td><td>Price</td>';
@@ -42,7 +44,7 @@ function removeItemOption(itemID) {
     try {
         var opt = document.getElementById("item" + itemID);
         opt.remove();
-    } catch {}
+    } catch { }
 }
 function gt(page) {
     window.location.href = page;
