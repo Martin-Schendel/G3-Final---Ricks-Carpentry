@@ -1,7 +1,6 @@
-<?php include "RedirectToLogin.php";?>
 <h2>New Order</h2>
 <form action="CreateOrder.php" method="post">
-    <fieldset>
+    <fieldset id="masterFeild">
         <fieldset id="addItemFieldset">
             <legend>Add Item</legend>
             <label for="Item">Item: </label>
@@ -24,16 +23,18 @@
             <button type="button" id="reset" onclick="location.reload()">Cancel Order</button>
         </fieldset>
         <label for="Customer">Customer: </label>
-        <select name="Customer">
+        <select name="Customer" id="Customer">
             <?php require "GetCustomerOptions.php"?>
         </select>
-        <a href="#newCustomerForm"><button type="button"> + Add New Customer</button></a><br>
+        <br/>
+        <a href="#newCustomerForm"><button type="button"> + Add New Customer</button></a><br/>
         <label for="Employee">Employee: </label>
-        <select name="Employee">
+        <select name="Employee" id="Employee">
             <?php require "GetEmployeeOptions.php"?>
         </select>
     </fieldset>
     <button>Submit</button>
+</form>
     <hr>
     <?php include "NewCustForm.html";?>
     <script src="script.js"></script>
