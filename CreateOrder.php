@@ -12,9 +12,6 @@ $prices = array();
 $created = false;
 $id = 0;
 $total = 0.0;
-$Number = 0;
-
-echo($_POST["Employee"]);
 
 if($stmt->num_rows > 0){
     
@@ -22,11 +19,10 @@ if($stmt->num_rows > 0){
        $items[$row["ItemName"]] = "itemm" . $row["ItemID"];
        $ids[$row["ItemName"]] = $row["ItemID"];
        $prices[$row["ItemName"]] = $row['ItemSalePrice'];
-       echo($row["ItemName"] . " " . $ids[$row["ItemName"]] . "<br>");
     }
 }
 
-$sql = "Insert into orderitem('ItemId','Quantity','SalePrice','FilledState','OrderID') Values ";
+$sql = "Insert into orderitem Values ";
 
 foreach($items as $key => $value){
     if(isset($_POST[$value])){
@@ -62,8 +58,13 @@ foreach($items as $key => $value){
         if(substr($sql,-1) != ' '){
             $sql .= ",";
         }
-        $sql .= "(" . $ids[$key] . ',' . $_POST[$items[$key]] . ',' . $prices[$key] 
-        . ',' . "'Unfilled'" . ',' . $id . ")";
+
+        $itemID = $ids[$key];
+        $qty = $_POST[$items[$key]];
+        $price = $prices[$key];
+        $filled = 'Unfilled';
+
+        $sql .= "($id, $itemID,$qty,$price,'$filled')";
 
         $total += $_POST[$items[$key]] * $prices[$key];
     }
@@ -78,10 +79,10 @@ if(!$queryCheck){
     Echo(mysqli_error($conn));
 }
 
-$PriceSql = `UPDATE ordersummary SET OrderTotalPrice = $total WHERE OrderID = $id;`;
+$PriceSql = "UPDATE ordersummary SET OrderTotalPrice = $total WHERE OrderID = $id;";
 
 $conn -> query($PriceSql);
 
+header("Location: index.php");
+
 ?>
-
-
