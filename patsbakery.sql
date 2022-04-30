@@ -146,14 +146,6 @@ ALTER TABLE `item`
   ADD PRIMARY KEY (`ItemID`),
   ADD KEY `ItemID` (`ItemID`);
 
---
--- Indexes for table `orderitem`
---
-ALTER TABLE `orderitem`
-  ADD PRIMARY KEY (`OrderID`),
-  ADD KEY `ItemID` (`ItemID`);
-
---
 -- Indexes for table `ordersummary`
 --
 ALTER TABLE `ordersummary`
