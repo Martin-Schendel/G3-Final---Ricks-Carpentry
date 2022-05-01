@@ -22,7 +22,7 @@
      float: left;
      padding: 0;
      display:table;
-     background-color:#563512;
+     background-color: #563512;
      margin-bottom:50px;
 }
  #logo{
@@ -34,8 +34,7 @@
      padding:20px 0px;
 }
  nav{
-    width:auto;
-     float:right;
+   margin-right: 320px;
 }
  nav ul{
     display:table;
@@ -48,7 +47,7 @@
     padding-right:0px;
 }
  nav ul li a{
-    color:#002e5b;
+    color:#563512;
      font-size:18px;
      padding: 25px 20px;
      display:inline-block;
@@ -60,6 +59,7 @@
      transition: all 0.5s ease 0s;
 }
  nav ul li a:hover i{
+    /* color:#563512; */
     color:#563512;
      transition: all 0.5s ease 0s;
 }

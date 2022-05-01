@@ -26,7 +26,10 @@ body{
     height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: var(--pb-white);
+    background-image: url("bakerybread-background.png");
+    background-position: center;
+    background-size: cover;
+    background-color: #563512;
     margin: auto;
     color: var(--pb-lightgreen);
     /* max-width: 90%; */
@@ -58,9 +61,12 @@ a, a:visited{
 h2{
     color: var(--pb-brown);
     margin: auto;
-    font-family: Galvji;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    /* font-family: Galvji; */
     padding: 1rem;
     font-size: xx-large;
+    text-shadow: 1px 1px #311b02;
 }
 h3{
     color: var(--pb-brown);
@@ -128,13 +134,16 @@ fieldset > label{
 }
 legend{
     color: var(--pb-darkgreen);
+    border: 1px solid var(--pb-darkgreen);
+    background-color: #a4b654;
     font-weight: bold;
+    padding: 5px;
 }
 button, input[type="submit"]{
     margin: 1rem;
     background-color: var(--pb-darkgreen);
     color: var(--pb-white);
-    border: none;
+    border: solid 1px var(--pb-darkgreen);
     width: 10rem;
     height: 2rem;
     border-radius: .25rem;
