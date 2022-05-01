@@ -29,7 +29,7 @@ body{
     background-color: var(--pb-white);
     margin: auto;
     color: var(--pb-lightgreen);
-    max-width: 90%;
+    /* max-width: 90%; */
 }
 header {
   text-align: left;
@@ -43,14 +43,7 @@ header>h1{
     margin-left: 1rem;
     float: inline-start;
 }
-nav{
-    float: inline-end;
-    font-size: 2rem;
-    padding: 1rem;
-}
-#NavLogo{
-    width: 110px;
-}
+
 .image {
   float: left;
   padding: 0px;
