@@ -16,7 +16,7 @@ WHERE ordersummary.CustomerID = customer.CustomerID
     AND ordersummary.OrderDate >= cast((now()) as date)
 GROUP BY ordersummary.OrderID;
 HEREDOC;
-
+ $DailyProfit = "0";
  $result = $conn->query($query);
  $numRows = $result->num_rows;
  while ($row = $result->fetch_assoc()){
@@ -26,6 +26,7 @@ HEREDOC;
     $OrderDate = htmlspecialchars($row['Order Date']);
     $SaleTotal = htmlspecialchars($row['Sale Total']);
     $Profit = htmlspecialchars($row['Profit']);
+    $DailyProfit += $Profit;
     echo(<<<HEREDOC
     <tr>
     <td>$OrderID</td>

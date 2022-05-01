@@ -27,7 +27,7 @@
                 <td></td>
                 <td></td>
                 <td>Total Profit:</td>
-                <td id="totalProfitDaily"></td>
+                <td id="totalProfitDaily"><?php echo($DailyProfit); ?></td>
             </tr>
         </table>
         <table>
@@ -47,7 +47,7 @@
                 <td></td>
                 <td></td>
                 <td>Total Profit:</td>
-                <td id="totalProfitWeekly"></td>
+                <td id="totalProfitWeekly"><?php echo($WeeklyProfit); ?></td>
             </tr>
         </table>
         <table>
@@ -67,7 +67,7 @@
                 <td></td>
                 <td></td>
                 <td>Total Profit:</td>
-                <td id="totalProfitMonthly"></td>
+                <td id="totalProfitMonthly"><?php echo($MonthlyProfit); ?></td>
             </tr>
         </table>
 

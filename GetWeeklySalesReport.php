@@ -17,6 +17,7 @@ WHERE ordersummary.CustomerID = customer.CustomerID
 GROUP BY ordersummary.OrderID;
 HEREDOC;
 
+ $WeeklyProfit = 0;
  $result = $conn->query($query);
  $numRows = $result->num_rows;
  while ($row = $result->fetch_assoc()){
@@ -26,6 +27,7 @@ HEREDOC;
     $OrderDate = htmlspecialchars($row['Order Date']);
     $SaleTotal = htmlspecialchars($row['Sale Total']);
     $Profit = htmlspecialchars($row['Profit']);
+    $WeeklyProfit += $Profit;
     echo(<<<HEREDOC
     <tr>
     <td>$OrderID</td>
