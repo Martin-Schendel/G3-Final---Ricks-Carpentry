@@ -26,8 +26,8 @@ HEREDOC;
     $Customer = htmlspecialchars($row['Customer']);
     $Employee = htmlspecialchars($row['Employee']);
     $OrderDate = htmlspecialchars($row['Order Date']);
-    $SaleTotal = htmlspecialchars($row['Sale Total']);
-    $Profit = htmlspecialchars($row['Profit']);
+    $SaleTotal = htmlspecialchars(number_format((double)$row['Sale Total'],2));
+    $Profit = htmlspecialchars(number_format((double)$row['Profit'],2));
     $MonthlyProfit += $Profit;
     echo(<<<HEREDOC
     <tr>
