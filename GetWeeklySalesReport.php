@@ -3,8 +3,8 @@ include "config.php";
 
 $query = <<<HEREDOC
 SELECT ordersummary.OrderID AS "Order ID", 
-customer.CustFirstName + " " + customer.CustLastName AS Customer, 
-employee.EmpFirstName + " " + employee.EmpLastName AS Employee, 
+CONCAT(customer.CustFirstName, " ", customer.CustLastName) AS Customer, 
+CONCAT(employee.EmpFirstName, " ", employee.EmpLastName) AS Employee, 
 ordersummary.OrderDate AS "Order Date", 
 ordersummary.OrderTotalPrice AS "Sale Total" ,
 ordersummary.OrderTotalPrice - SUM(item.ItemWholesaleCost) AS Profit
@@ -14,13 +14,16 @@ WHERE ordersummary.CustomerID = customer.CustomerID
     AND ordersummary.OrderID = orderitem.OrderID
     AND orderitem.ItemID = item.ItemID
     AND ordersummary.OrderDate >= cast((now() - interval 7 day) as date)
-GROUP BY ordersummary.OrderID;
+GROUP BY ordersummary.OrderID
+ORDER BY ordersummary.OrderDate ASC;
 HEREDOC;
 
  $WeeklyProfit = 0;
  $result = $conn->query($query);
  $numRows = $result->num_rows;
+ 
  while ($row = $result->fetch_assoc()){
+    $jsond = json_encode($row);
     $OrderID = htmlspecialchars($row['Order ID']);
     $Customer = htmlspecialchars($row['Customer']);
     $Employee = htmlspecialchars($row['Employee']);
@@ -29,6 +32,7 @@ HEREDOC;
     $Profit = htmlspecialchars($row['Profit']);
     $WeeklyProfit += $Profit;
     echo(<<<HEREDOC
+    $jsond
     <tr>
     <td>$OrderID</td>
     <td>$Customer</td>

@@ -3,8 +3,8 @@ include "config.php";
 
 $query = <<<HEREDOC
 SELECT ordersummary.OrderID AS "Order ID", 
-customer.CustFirstName + " " + customer.CustLastName AS Customer, 
-employee.EmpFirstName + " " + employee.EmpLastName AS Employee, 
+CONCAT(customer.CustFirstName, " ", customer.CustLastName) AS Customer, 
+CONCAT(employee.EmpFirstName, " ", employee.EmpLastName) AS Employee, 
 ordersummary.OrderDate AS "Order Date", 
 ordersummary.OrderTotalPrice AS "Sale Total" ,
 ordersummary.OrderTotalPrice - SUM(item.ItemWholesaleCost) AS Profit
@@ -14,7 +14,8 @@ WHERE ordersummary.CustomerID = customer.CustomerID
     AND ordersummary.OrderID = orderitem.OrderID
     AND orderitem.ItemID = item.ItemID
     AND ordersummary.OrderDate >= cast((now() - interval 1 month) as date)
-GROUP BY ordersummary.OrderID;
+GROUP BY ordersummary.OrderID
+ORDER BY ordersummary.OrderDate ASC;
 HEREDOC;
 
  $MonthlyProfit = 0;
