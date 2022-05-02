@@ -1630,7 +1630,7 @@ CREATE TABLE `ordersummary` (
   `CustomerID` int NOT NULL,
   `EmployeeID` int NOT NULL,
   `OrderDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `OrderTotalPrice` int NOT NULL
+  `OrderTotalPrice` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -2224,7 +2224,7 @@ ALTER TABLE `orderitem`
   ADD KEY `orderitem_ibfk_2` (`OrderID`);
 
 --
--- Indexes for table `ordersummary`
+-- Indexes for table `orderary`
 --
 ALTER TABLE `ordersummary`
   ADD PRIMARY KEY (`OrderID`),
