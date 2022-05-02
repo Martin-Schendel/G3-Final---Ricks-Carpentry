@@ -101,6 +101,10 @@ th{
     padding: .125rem;
     background-color: var(--pb-darkgreen);
 }
+td,th{
+    min-width: 100px;
+    min-height: 75px;
+}
 .content{
     flex: 1 0 auto;
 }
