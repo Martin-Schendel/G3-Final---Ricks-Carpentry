@@ -23,7 +23,6 @@ HEREDOC;
  $numRows = $result->num_rows;
  
  while ($row = $result->fetch_assoc()){
-    $jsond = json_encode($row);
     $OrderID = htmlspecialchars($row['Order ID']);
     $Customer = htmlspecialchars($row['Customer']);
     $Employee = htmlspecialchars($row['Employee']);
@@ -32,7 +31,6 @@ HEREDOC;
     $Profit = htmlspecialchars($row['Profit']);
     $WeeklyProfit += $Profit;
     echo(<<<HEREDOC
-    $jsond
     <tr>
     <td>$OrderID</td>
     <td>$Customer</td>
