@@ -14,6 +14,8 @@
         <?php include_once "LoginForm.html"?>
         <hr>
         <?php include "NewEmpForm.html"?>
+        <!-- code below is for error validation-->
+        <?php include "EmployeeErrorValidation.php"?>
     </div>
     <footer>
         Copyright 2022 Pat's Bakery
