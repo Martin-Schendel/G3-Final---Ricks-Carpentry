@@ -36,8 +36,8 @@ HEREDOC;
     <td>$Customer</td>
     <td>$Employee</td>
     <td>$OrderDate</td>
-    <td>$SaleTotal</td>
-    <td>$Profit</td>
+    <td>$$SaleTotal</td>
+    <td>$$Profit</td>
 </tr>
 HEREDOC);
  }
