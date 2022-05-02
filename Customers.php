@@ -12,6 +12,8 @@
 <?php include_once "Header.html";?>
     <div class="content">
     <?php include "NewCustForm.html"?>
+      <!-- code below is for error validation-->
+    <?php include "CustomersErrorValidation.php"?>
     </div>
     <footer>
         Copyright 2022 Pat's Bakery
