@@ -27,6 +27,11 @@ HEREDOC;
     $Customer = htmlspecialchars($row['Customer']);
     $Employee = htmlspecialchars($row['Employee']);
     $OrderDate = htmlspecialchars($row['Order Date']);
+
+    $FancyDate = strtotime($OrderDate);
+
+    $DisplayDate = trim(date("D M d h:i:s",$FancyDate),chr(0xC2).chr(0xA0));
+
     $SaleTotal = htmlspecialchars(number_format((double)$row['Sale Total'],2));
     $Profit = htmlspecialchars(number_format((double)$row['Profit'],2));
     $WeeklyProfit += $Profit;
@@ -35,9 +40,9 @@ HEREDOC;
     <td>$OrderID</td>
     <td>$Customer</td>
     <td>$Employee</td>
-    <td>$OrderDate</td>
-    <td>$$SaleTotal</td>
-    <td>$$Profit</td>
+    <td>$DisplayDate</td>
+    <td>$SaleTotal</td>
+    <td>$Profit</td>
 </tr>
 HEREDOC);
  }
