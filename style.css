@@ -64,7 +64,6 @@ h2{
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     /* font-family: Galvji; */
-    padding: 1rem;
     font-size: xx-large;
     text-shadow: 1px 1px #311b02;
 }
@@ -110,15 +109,6 @@ td,th{
 }
 footer{
     flex-shrink: 0;
-}
-.blank{
-    background-color: var(--pb-yellow);
-}
-.invalid{
-    background-color: var(--pb-lightgreen);
-}
-.valid{
-    background-color: var(--pb-darkgreen);
 }
 .invBtn{
     width: 5rem;

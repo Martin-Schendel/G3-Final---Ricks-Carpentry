@@ -1,4 +1,4 @@
-<h2>New Order</h2>
+<h2>&nbsp;&nbsp;&nbsp;&nbsp;New Order</h2>
 <form action="CreateOrder.php" method="post">
     <fieldset id="masterFeild">
         
