@@ -11,5 +11,5 @@ HEREDOC;
     $ItemID = htmlspecialchars($row['ItemID']);
     $ItemName = htmlspecialchars($row['ItemName']);
     $ItemSalePrice = htmlspecialchars($row['ItemSalePrice']);
-    echo("<option id=\"item$ItemID\" value=\"$ItemID\" class=\"$ItemSalePrice\">$ItemName</option>");
+    echo("<td><button id=\"$ItemID\" class=\"$ItemSalePrice\">$ItemName</button></td>");
  }

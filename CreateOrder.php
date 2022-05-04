@@ -6,6 +6,7 @@ require('Config.php');
 
 $stmt = $conn->query('SELECT * FROM Item');
 
+
 $items = array();
 $ids = array();
 $prices = array();
@@ -29,7 +30,7 @@ foreach($items as $key => $value){
 
         if(!$created){
             $CreateSummorySql = "Insert into ordersummary(CustomerID,EmployeeId,OrderTotalPrice) "
-            . "Values ( " . $_POST['Customer'] . "," . $_POST['Employee'] . ",100);";
+            . "Values ( " . $_POST['Customer'] . "," . $_POST['Employee'] . "," . $_POST['orderTotal'] . ");";
             
             $QueryResult = $conn -> query($CreateSummorySql);
 
@@ -41,23 +42,21 @@ foreach($items as $key => $value){
             $GetSummorySql = "Select OrderID From ordersummary Where OrderDate =  " . 
             "(Select Max(OrderDate) from ordersummary)";
 
-            $result = $conn -> query($GetSummorySql);
+            $result = $conn->query($GetSummorySql);
 
             if ($result->num_rows > 0){
                 while($row = $result->fetch_assoc()){
                     $id = $row['OrderID'];
                 }
             }
-
+            $id = $conn->insert_id;
             $created=true;
 
         }
-
+        
         //checks if the last character in the sql creatiion script is )
         //if it isn't that means that this isn't the first value and it puts in a comma.
-        if(substr($sql,-1) != ' '){
-            $sql .= ",";
-        }
+        
 
         $itemID = $ids[$key];
         $qty = $_POST[$items[$key]];
@@ -72,13 +71,14 @@ foreach($items as $key => $value){
 
 $sql .= ";";
 
-$queryCheck = $conn -> query($sql);
+$queryCheck = $conn->query($sql);
 
 if(!$queryCheck){
     echo($sql);
     Echo(mysqli_error($conn));
 }
 
+$id = $conn->insert_id;
 $PriceSql = "UPDATE ordersummary SET OrderTotalPrice = $total WHERE OrderID = $id;";
 
 $conn -> query($PriceSql);

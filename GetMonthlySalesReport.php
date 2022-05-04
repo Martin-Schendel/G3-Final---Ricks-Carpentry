@@ -7,7 +7,7 @@ CONCAT(customer.CustFirstName, " ", customer.CustLastName) AS Customer,
 CONCAT(employee.EmpFirstName, " ", employee.EmpLastName) AS Employee, 
 ordersummary.OrderDate AS "Order Date", 
 ordersummary.OrderTotalPrice AS "Sale Total" ,
-ordersummary.OrderTotalPrice - SUM(item.ItemWholesaleCost) AS Profit
+SUM(orderitem.quantity * item.ItemWholesaleCost) AS Cost
 FROM ordersummary, customer, employee, orderitem, item
 WHERE ordersummary.CustomerID = customer.CustomerID 
     AND ordersummary.EmployeeID = employee.EmployeeID 
@@ -33,7 +33,7 @@ HEREDOC;
     $DisplayDate = trim(date("D M d h:i:s",$FancyDate),chr(0xC2).chr(0xA0));
 
     $SaleTotal = htmlspecialchars(number_format((double)$row['Sale Total'],2));
-    $Profit = htmlspecialchars(number_format((double)$row['Profit'],2));
+    $Profit = htmlspecialchars(number_format((double)($row['Sale Total'] - $row['Cost']),2));
     $MonthlyProfit += $Profit;
     echo(<<<HEREDOC
     <tr>

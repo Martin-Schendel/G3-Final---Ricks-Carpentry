@@ -125,6 +125,13 @@ footer{
     height: 2rem;
     margin: 1rem;
 }
+button:hover {background-color: var(--pb-lightgreen)}
+
+button:active {
+  background-color: var(--pb-blue);
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);
+}
 fieldset{
     background-color: var(--pb-brown);
     border: solid var(--pb-darkgreen);
