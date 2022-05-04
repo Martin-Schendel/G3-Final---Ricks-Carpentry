@@ -65,7 +65,7 @@
         <select name="Employee" id="Employee">
             <?php require "GetEmployeeOptions.php"?>
         </select>
-        <input type="submit">
+        <input type="submit" value="Submit">
     </fieldset>
 </form>
     <hr>
