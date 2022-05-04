@@ -2,18 +2,13 @@
 session_start();
 require('Config.php');
 
-// Get items
-
+// Get items and put the values in associative arrays
 $stmt = $conn->query('SELECT * FROM Item');
-
-
 $items = array();
 $ids = array();
 $prices = array();
 $created = false;
 $id = 0;
-$total = 0.0;
-
 if($stmt->num_rows > 0){
     
     while($row = $stmt->fetch_assoc()){
@@ -22,67 +17,37 @@ if($stmt->num_rows > 0){
        $prices[$row["ItemName"]] = $row['ItemSalePrice'];
     }
 }
-
-$sql = "Insert into orderitem Values ";
-
+// check if the any items have quantity > 0, if they do,
+// Create the ordersummary record only once, then use it's insert id to
+// create records for each item with quantity > 0 
 foreach($items as $key => $value){
-    if(isset($_POST[$value])){
-
+    if(isset($_POST[$value])&&($_POST[$value]!=0)){
         if(!$created){
-            $CreateSummorySql = "Insert into ordersummary(CustomerID,EmployeeId,OrderTotalPrice) "
-            . "Values ( " . $_POST['Customer'] . "," . $_POST['Employee'] . "," . $_POST['orderTotal'] . ");";
-            
-            $QueryResult = $conn -> query($CreateSummorySql);
-
+            $CreateSummarySql = $conn->prepare("Insert into ordersummary(CustomerID,EmployeeId,OrderTotalPrice) Values ( " 
+            . $_POST['Customer'] . ", " 
+            . $_POST['Employee'] . ", " 
+            . $_POST['orderTotal'] . ");");
+            $QueryResult = $CreateSummarySql->execute();
+            $OrderID = $conn->insert_id;
             if(!$QueryResult){
-                Echo($CreateSummorySql . "<br>");
+                Echo($CreateSummarySql . "<br>");
                 Echo(mysqli_error($conn));
             }
-
-            $GetSummorySql = "Select OrderID From ordersummary Where OrderDate =  " . 
-            "(Select Max(OrderDate) from ordersummary)";
-
-            $result = $conn->query($GetSummorySql);
-
             if ($result->num_rows > 0){
                 while($row = $result->fetch_assoc()){
                     $id = $row['OrderID'];
                 }
             }
-            $id = $conn->insert_id;
             $created=true;
-
         }
-        
-        //checks if the last character in the sql creatiion script is )
-        //if it isn't that means that this isn't the first value and it puts in a comma.
-        
-
+        $sql = $conn->prepare("INSERT INTO orderitem VALUES(?,?,?,?,?);");
         $itemID = $ids[$key];
         $qty = $_POST[$items[$key]];
         $price = $prices[$key];
         $filled = 'Unfilled';
-
-        $sql .= "($id, $itemID,$qty,$price,'$filled')";
-
-        $total += $_POST[$items[$key]] * $prices[$key];
+        $sql->bind_param('iiids', $id, $itemID, $qty, $price, $filled);
+        $sql->execute();
     }
 }
-
-$sql .= ";";
-
-$queryCheck = $conn->query($sql);
-
-if(!$queryCheck){
-    echo($sql);
-    Echo(mysqli_error($conn));
-}
-
-$id = $conn->insert_id;
-$PriceSql = "UPDATE ordersummary SET OrderTotalPrice = $total WHERE OrderID = $id;";
-
-$conn -> query($PriceSql);
-
 header("Location: index.php");
-
 ?>
