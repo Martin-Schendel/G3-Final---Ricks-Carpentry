@@ -37,7 +37,7 @@ HEREDOC;
 
     $SaleTotal = htmlspecialchars(number_format((double)$row['Sale Total'],2));
     $Profit = htmlspecialchars(number_format((double)$SaleProfit,2));
-    $DailyProfit += $Profit;
+    $DailyProfit += (double)$row['Sale Total'];
     echo(<<<HEREDOC
     <tr>
     <td>$OrderID</td>
